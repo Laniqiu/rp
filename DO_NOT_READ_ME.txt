@@ -48,36 +48,23 @@ The proposed model will be evaluated in respect to three parts: aspect classific
 2024.06 - 2024.12: production of the thesis
 
 * Outline of Thesis 
-1. Introduction (background, objectives)
-2. Related Work
-3. Methodology (research design)
-4. Experiment (including dataset, data processing and analysis, implementation details, etc.)
-5. Conclusion (summary, contributions and shortcomings, further research directions)
+  1. Introduction (background, objectives)
+  2. Related Work
+  3. Methodology (research design)
+  4. Experiment (including dataset, data processing and analysis, implementation details, etc.)
+  5. Conclusion (summary, contributions and shortcomings, further research directions)
 
 6.	Project Significance and Value:
-可能成果，预期影响，价值
-金融领域有需求，
 
-展望： 多语言、多样化
+Financial texts such as news, reviews, corporate reports, tweets and more, though unstructured, contain rich and valuable information. FSA, by making sense of these unstructed data sources, is expected to and has actually been approved to play a role in the financial and economic domain, like the market of stocks, oil, or foreign exchange (Man, Luo and Lin, 2019). This proposed research is a response in time towards the increasing demand for and interests on such techniques and methods from  the industry. The academia also look forward to seeing improvments in this area. In this sense, the significance of this research can be twofold despite the fact that its value might be immediate or indirect: From an academic perspective, the work of this research is supposed to fill the gap around FSA and inspire further research, and from the perspectve of pragmatism, it has the potential to ultimately yield results that assist in fast, reliable and comprehensive data analysis and decision making for financial markets and participants concerned. 
 
-
-Financial texts such as news, reviews, corporate reports, tweets and more, though unstructured contain rich and valuable information. The work of this proposed research around FSA is a response towards the increasing demand for techniques and methods to make use of these unstructed data sources in the financial and economic domain and finally to yield results that assist in fast, reliable and comprehensive data analysis and decision making for financial markets and participants concerned. Atucally, FSA has been approved to be useful in the financial domain(issues)
-
-which is also the ultimate　goal of this research. The value of this work might be indirect 
 
 
 
 例子 steve loves iphone and hates galaxy
-
+展望： 多语言、多样化
 
 社交平台 social media outlets
-
-
-从研究者的角度理论：有探索余地
-As stated before, 
-从应用角度：
-Possible applications:
-Meanwhile, from the perspective of pragmatism, 
 
 
 
