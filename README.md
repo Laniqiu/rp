@@ -1,15 +1,18 @@
 2.  Project Title:
-Towards End-to-End Financial Sentiment Analysis  #######
+Towards End-to-End Financial Sentiment Analysis 
 
 3.  Project Objectives:  (Purpose of proposed investigation)
-This research intends to apply sentiment analysis to the financial domain on an aspect level. Primarily, it aims to extract the target aspects within financial texts and assign a sentiment type (i.e., positive, neutral and negative) or to be more specific, give a sentiment intensity score between -1(extremely negative/bullish) and +1 (extremely positive/bearish) for each of them.
+This research intends to apply sentiment analysis to the financial domain on an aspect level. Primarily, it aims to extract the target aspects within financial texts which can present themselves as news, reviews, corporate reports, or posts from social medias such Twitter or StockTwit and assign a sentiment type (i.e., positive, neutral and negative) or to be more specific, give a sentiment intensity score between -1(extremely negative/bullish) and +1 (extremely positive/bearish) for each of them  (Man, Luo and Lin, 2019).
 Details will be given in the following part.
 
 4.  Scope and Background of Research:
   (Please identify key issues/problems to be addressed)
 
-Financial sentiment analysis (FSA), as the term implies, is the application of sentiment analysis (SA )in the finance sector. Likewise, FSA leverages knowledge and methods in NLP and computational linguistics to identify and extract opinions from text data. Technically, FSA is a fine-grained SA task – aspect-based sentiment analysis (AbSA or ABSA), which suggests, instead of merely concluding what kind of attitude a text implies, it aims further to identify both the sentiment type and the target (Liu, 2012). Granular insights into opinions actually make more sense because an opinion is barely of use with an unidentified target. For instance, the sentence “I just love my camera for its good picture quality although its battery life is short" clearly expresses a positive tone, yet not absolutely. The opinion holder "I" is positive about one aspect, i.e., picture quality, and negative about the other aspect, i.e., battery life, of the entity, i.e., camera. “aspect” was referred to as "feature" (Hu and Liu, 2004; Pang and Lee, 2008). Besides, the example illustrates that opinion targets, picture quality and battery life of the camera in this case, usually consist of certain entities and/or aspects. Hence, ABSA needs to address both entities and aspects. That leads to the first phase of ABSA: aspect extraction (AE), followed by a second phase of aspect sentiment analysis or ASA for short. AE deals with the extraction of aspects which，depending on the actual situation, can be aspects (explicit or implicit), entities or opinion tagret expressions (actual words or phrases in the text to indicate opinions), while ASA predicts a sentiment polarity or value for the object extracted previsouly (Liu, 2012; Nazir, 2020). 
-端到端，
+Financial sentiment analysis (FSA), as the term implies, is the application of sentiment analysis (SA )in the finance sector. Likewise, FSA leverages knowledge and methods in NLP and computational linguistics to identify and extract opinions from text data. Technically, FSA is a fine-grained SA task – aspect-based sentiment analysis (AbSA or ABSA), which suggests, instead of merely concluding what kind of attitude a text implies, it aims further to identify both the sentiment type and the target (Liu, 2012). Granular insights into opinions actually make more sense because an opinion is barely of use with an unidentified target. For instance, the sentence "I just love my camera for its good picture quality although its battery life is short" clearly reveals a positive tone, yet not absolutely. The opinion holder "I" expresses different abou the entity, i.e., camera with regard to its two aspects or "features", i.e., picture quality (positive) and battery life (negative) (Hu and Liu, 2004; Pang and Lee, 2008). Besides, the example illustrates that opinion targets, picture quality and battery life of the camera in this case, usually consist of certain entities and/or aspects. Hence, ABSA needs to address both entities and aspects. That leads to the first phase of ABSA: aspect extraction (AE), followed by a second phase of aspect sentiment analysis or ASA for short. Notably, "aspect" here is a collective term, which, depending on the actual situation, can be aspects (explicit or implicit), entities or opinion tagret expressions (actual words or phrases in the text to indicate opinion targets) and so on. AE deals with the extraction of these objects, and sometimes classification is also involved during, while ASA predicts a sentiment polarity or value for the aspect extracted previsouly (Liu, 2012; Nazir, 2020). 
+
+fsa难点，
+一个sentence/sequence可能有多个target，一个target有一个entity和若干个aspect，各个aspect的category可能是有重合的
+
 The AE phase in this proposed research extracts both possible entities and aspects and a special aspect GENERAL will be used when the opinion is about the entity as a whole (Liu, 2012). 
 看成key-value extraction，entity作为key，aspect 作为value，二者之间是mapping的，其余都是无需的，对一个字段，先判断是key还是value，若是value进一步判断分类
 之后再对这个key-value对进行sentiment analysis，具体实现的话。。
@@ -24,16 +27,13 @@ fsa的不同之处，Different from traditional SA, FSA is
 This study 说明absa的难点，引入fsa的难点：数据，讲明本文的rq和研究对象、贡献等。。。。。。。。。。。。。说明本文extract的目标是什么 2. fas和通用sa的不同 ## 难点或挑战 和其他领域的absa不同，金融领域一个问题在于数据少，标注难。应该着重数据这里，
 It is similar to named entity recognition (NER) of information extraction (IE),
 
-大概阶段：identity target， 2是对target做sentiment analysis，target可能有多个aspect（aspect和entity可能是同一个），对aspect进行sentiment打分，可以是positive negative neutral或给一个sentiment score，后者可能是回归问题
-对第一个任务task，可以看成是一个binary classification？识别是target，是entity或aspect，和sentiment score联系？但是任务其实很多，应该细化，xing 等认为的分治法，一次解决一个sub problem；；；需要解决的问题：
-
 *******************lexicon方法可以用来做数据处理或增强， Mishev et al, 2020
 ************ bert做representation
 ************** rnn做序列标注即ae，cnn做分类比如chen 2018，Jangid et al 2018  看layoutlm和vibert的论文
-本文也认为aspect 2级别的分类
 ######################
 *难点
- And FSA is deemed to be more difficult than other tasks within the field, such as SA for general purpose or of business reviews. Reasons could be many. One the one hand, financial application is more demanding with regard to interpretability and accuracy because a single mistake could possibly cost a fortune, while on the other hand, well-annotated and domain-specific data for training is quiet insufficient partly because finance is a relatively less explored area and that it requires expert or domain knowledge for annotation. The fact that financial texts involve a large number of jargons in the finance- and econmonic-sector possibly explains why general SA models usually get unsatisfactory performance when applied to the finance domain (Xing, et al 2020; Mishev et al, 2020). 
+ABSA is challenging because it touches 通用难点，
+ And FSA is deemed to be more difficult than other tasks within the field, such as SA for general purpose or of business reviews. Reasons could be many. One the one hand, financial application is more demanding with regard to interpretability and accuracy because a single mistake could possibly cost a fortune, while on the other hand, well-annotated and domain-specific data for training is quiet insufficient partly because finance is a relatively less explored area and that it requires expert or domain knowledge for annotation. The fact that financial texts involve a large number of jargons possibly explains why general SA models usually get unsatisfactory performance when applied to the finance domain (Xing, et al 2020; Mishev et al, 2020). 
 贡献################
 The contribution of this research would be: 1. Data 2.  ….贡献：1.是数据，2.是模型或方法？？
 /...2 
@@ -41,29 +41,16 @@ Form RDC/1A (page 2)
 ########################################################
 5.  Research Methodology
 
-Generally, methods used for FSA can be classified into lexicon-based, machine learning and deep learning. Among them, traditional lexicon-based such as OpinionLex, SenticNet and Loughran and McDonal's word list have been found to be useful, but insufficient to deal with financial texts for fine-grained analysis, and most regular machine learning approches like Naive Bayes, SVM and fastText also seem to fall behind the deep learning approaches like bi-LSTM (Liu, 2012; Man et al, 2019; Xing, et al 2020; Mishev et al, 2020; Nazir et al, 2020; Consolia et al, 2021). Particularily, in cases where lack of large-scale, domain-specific and high-quality training data has been found to be a huge concern, transfer learning (or domain adaptation) that allows to utilize larger and related dataset for improving the target task seems to offer a promising solution (Yang et al, 2018; Man et al, 2019). And the pre-trained model BERT or its variants have achived remarkable success in plenty of NLP tasks including general SA and FSA thanks to its capability to capature more complex contextual information in contrast with word2vec or Glove and the deeper reprentation methods like ELMo (Li et al, 2019; Xing et al, 2020; Mishev et al, 2020; Sun et al, 2019; Araci, 2019). Hence, this research decides to follow the paradigm of deep learning and utilize BERT for text representation. 
-针对挑战： 1. 是数据，2是方法
+Generally, methods used for FSA can be classified into lexicon-based, machine learning and deep learning. Among them, carefully collected or designed lexicons such as OpinionLex, SenticNet and Loughran and McDonal's word list (L&M) have been found to be useful, but insufficient to deal with financial texts for fine-grained analysis, and most regular machine learning approches like Naive Bayes, SVM and fastText also seem to fall behind the deep learning approaches like bi-LSTM (Liu, 2012; Man et al, 2019; Xing, et al 2020; Mishev et al, 2020; Nazir et al, 2020; Consolia et al, 2021). Particularily, in cases where lack of large-scale, domain-specific and high-quality training data has been found to be a huge trouble, transfer learning (or domain adaptation) that allows to utilize larger and related dataset for improving the target task seems to offer a promising solution (Yang et al, 2018; Man et al, 2019). And the pre-trained model BERT or its variants have been applied into and achived remarkable success in plenty of NLP tasks including general SA and FSA thanks to its capability to capature more complex contextual information in contrast with word2vec or Glove and the deeper reprentation methods like ELMo (Li et al, 2019; Xing et al, 2020; Mishev et al, 2020; Sun et al, 2019; Araci, 2019). Hence, this research decides to follow the paradigm of deep learning and utilize BERT for text representation. 
 
+Here is a task description. Given a sentence or sequence s, it may contain more than one target as t={t1, ..., tk}, and ti (1=<i<=k) is defined as a one-to-many pair with a single entity and possibly mulitiple aspects of different categories, the goal is to extract t within s and predict a sentiment polarity or degree for each ti. Take an example from the Fiqa dataset, s="easyJet expects resilient demand to withstand security fears", the proposed end-to-end approach is supposed to predict a slightly positive value (the labeled sentiment score is 0.165) for the entity "easyJet" with regard to an aspect category of "risks" (aspect level 2 in fiqa). In the AE phase, this research focuses on an aspect level 2 classification over an aspect level 1 classification (i.e. entity classification) considering that the entity itself such as "easyJet" (instead of its category "corporate") is also a major concern for decision making in the financial and economic context, while details of its related aspects are possibly less crucial in the process. 
+Note that an entity is not absolutely but mostly explicit while an aspect is potentially implicit. 
+于是这整个就成了一个发现句子中的entity，为句子中的aspect（显性或隐性）分类并mapping到特定的entity（大概率只有一个），然后为每个entity-aspect pair即target做asa
+对整个sentence 先判断是否有多个target（多个target的话可能polarity不一致），若只有一个target即，就只需要识别
+opinion expressions不重要，重要的是polarity， opinion expressions作为sentiment analysis的特征，最后将sentiment和target mapping，
 
-把asa看作是分类任务？把ae看作是ner或sequence labeling task
-看layoutlm和vibert？
+Avaliable datasets include SemEval 2017, StockTwits and FiQA and so on (Chen, et al, 2018; Xing et al, 2020). FiQA offers about 1,1000 samples for FSA training, including 435 news headlines and 675 tweets with each labeled with the target entity, aspect and a sentiment score ranging from -1 to 1 continuously (Maia et al., 2018). It is an open dataset from the WWW’18 conference and received a few papers dealing with two FSA tasks. FiQA data is well-annotated and finance-specific （加表，展示数据类型或示例), yet it is rather small in quantity. Other datasets also have their problems such as too much noise, poor annotation, and so on. Therefore, besides from pre-training language models, this research intends to apply data augmentation by taking advantage of the existing lexicon approaches such as L&M, which incorporate substantial financial knowledge, and thus may be used as a resource to enrich our traning data. 数据增强的具体方法，替换等，而且要改成这里适用的格式
 
-fiqa数据集的sentiment分数不是三元而是-1到1的数据，但这样的话标注打分会很困难，也会主观？？
-
-# 缺数据，一个是bert，fsa的数据一个是数据增强，
-。。
-20那篇总数，证明Bert能取得较好的结果，因此还是用bert？用了stocksen数据集，
-
-*Data 数据，还有个sem see https://sites.google.com/view/fiqa/home#h.p_5YO6tqDxC23c
-SemEval 2017 Task 5 
-Financial phrase bank
-StockTwits (Chen, et al, 2018) chen对数据做了处理，和fiqa的适配， chen这里不用做ner，用sigmoid替代softmax预测sentiment degree
-Financial texts can present themselves as news, reviews, corporate reports, or posts from social medias such Twitter or StockTwits (Man, Luo and Lin, 2019). 有些人自己搜集数据， 
-FiQA, an open dataset from the WWW’18 conference, offers about 1,1000 samples for FSA training, including 435 news headlines and 675 tweets with each labeled with the target entity, aspect and a sentiment score ranging from -1 to 1 continuously (Maia et al., 2018). (加表，展示数据类型或示例)
-Despite the fact FiQA contains well-annotated and finance-specific data, it is rather small in quantity. 未得到 书增强、 
-StockTwist Sentiment dataset （Xing et al, 2020, 数量少，可请求使用)
-SemEval-2017
-训练数据、测试数据
 The proposed method will be evaluated in respect to aspect classification and sentimnet classification with indicators like precesion, recall, F1-score, MSE and R^2.
 * Outline of Thesis 
   1. Introduction (background, objectives)
